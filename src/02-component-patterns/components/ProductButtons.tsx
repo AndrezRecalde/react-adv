@@ -4,7 +4,7 @@ import styles from "../styles/styles.module.css";
 
 interface ProductButtonsProps {
   className?: string;
-  style?: CSSProperties
+  style?: CSSProperties;
 }
 
 export const ProductButtons = ({ className, style }: ProductButtonsProps) => {

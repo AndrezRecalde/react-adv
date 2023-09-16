@@ -1,5 +1,4 @@
-import { ReactElement } from 'react';
-
+import { ReactElement } from "react";
 
 export interface ProductCardProps {
   product: Product;
@@ -21,4 +20,9 @@ export interface ProductContextProps {
   counter: number;
   handleIncrease: (value: number) => void;
   product: Product;
+}
+
+export interface OnChangeArgs {
+  product: Product;
+  count: number;
 }
