@@ -15,24 +15,17 @@ export const useShoppingCart = () => {
     
       const onProductCountChange = ({ count, product }: OnChangeArgs) => {
         setShoppingCart((prev) => {
-          const productInCart: ProductInCart = prev[product.id] || {
-            ...product,
-            count: 0,
-          };
-    
-          if (Math.max(productInCart.count + count, 0) > 0) {
-            productInCart.count += count;
+           if (count === 0) {
+            const { [product.id]: toDelete, ...rest } = prev;
+            console.log(toDelete);
             return {
-              ...prev,
-              [product.id]: productInCart,
+              ...rest,
             };
           }
     
-          //Borrar el producto
-          const { [product.id]: toDelete, ...rest } = prev;
-          console.log(toDelete);
           return {
-            ...rest,
+            ...prev,
+            [product.id]: { ...product, count },
           };
         });
       };
